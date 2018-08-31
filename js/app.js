@@ -22,7 +22,7 @@ class Enemy {
             player.y < this.y + 60 && player.y + 60 > this.y) {
             subtractScores();
             player.x = 202;
-            player.y = 405;
+            player.y = 325;
         }
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
@@ -65,32 +65,49 @@ class Player {
         if (this.y < 0) {
             setTimeout(function () {
                 player.x = 202;
-                player.y = 405;
+                player.y = 325;
                 updateScoresCrosses();
             }, 100);
         }
     }
 }
+let level = 1;
 let scores = 0; //variable to store the scores
 let crosses = 0;
 let divCrosses = document.getElementById("crosses");
 let divScores = document.getElementById("scores");
+let divLevel = document.getElementById("level");
+
 divScores.innerHTML = `Scores : ${scores}`;
 divCrosses.innerHTML = `Crosses : ${crosses}`;
+divLevel.innerHTML = `Level : ${level}`;
 function updateScoresCrosses() {
     scores += 10;
     crosses += 1;
     divScores.innerHTML = `Scores : ${scores}`;
     divCrosses.innerHTML = `Crosses : ${crosses}`;
+    changeLevel();
+    divLevel.innerHTML = `Level : ${level}`;
 }
+
 function subtractScores() {
-    if (scores >= 5){
+    if (scores >= 5) {
         scores -= 5;
-    } else{
+    } else {
         scores = 0;
     }
-   
+
     divScores.innerHTML = `Scores : ${scores}`;
+}
+
+function changeLevel() {
+    if (scores >= 50 && level === 1) {
+        level += 1;
+        enemyLocation.push(150);
+        enemy = new Enemy(0, 150, 200);
+        allEnemies.push(enemy);
+
+    }
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -101,7 +118,7 @@ enemyLocation.forEach(function (locationY) {
     let enemy = new Enemy(0, locationY, 200);
     allEnemies.push(enemy);
 })
-let player = new Player(200, 405);
+let player = new Player(202, 325);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -115,4 +132,3 @@ document.addEventListener('keyup', function (e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
