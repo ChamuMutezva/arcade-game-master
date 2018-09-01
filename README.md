@@ -18,8 +18,8 @@ My goal is to become a full time software developer.
 
 1. Move the player up, down, left and right using the arrow keys.
 2. Avoid coming into contact with the enemies.
-3. The game becomes more challenging with the increase of your points
-
+3. Reach the water to earn points and increase your chances to progress to the next level.
+4. The game becomes more challenging with the increase of your points.
 
 ## Installation
 
@@ -37,4 +37,4 @@ Please you are free to email on (ckmutezva@gmail.com)
 
 I was inspired by Udacity to do the project as part of my course work.
 Follow the link to play the game.
-[Frogger Arcade Game](https://https://chamumutezva.github.io/arcade-game-master/)
+[Frogger Arcade Game](https://chamumutezva.github.io/arcade-game-master/)

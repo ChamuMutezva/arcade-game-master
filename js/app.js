@@ -24,7 +24,7 @@ class Enemy {
             player.y < this.y + 60 && player.y + 60 > this.y) {
             subtractScores();
             player.x = 202;
-            player.y = 325;
+            player.y = 400;
         }
       
     }
@@ -60,12 +60,12 @@ class Player {
             this.y -= 83;
         }
         if (keyPress == "down" && this.y < 405) {
-            this.y += 83;
+            this.y += 43;
         }
         if (this.y < 0) {
             setTimeout(function () {
                 player.x = 202;
-                player.y = 325;
+                player.y = 400;
                 updateScoresCrosses();
             }, 100);
         }
@@ -131,7 +131,7 @@ enemyLocation.forEach(function (locationY) {
     let enemy = new Enemy(0, locationY, 200);
     allEnemies.push(enemy);
 })
-let player = new Player(202, 325);
+let player = new Player(202, 400);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

@@ -2,30 +2,34 @@ body {
     text-align: center;
     background-color: aqua;
 }
+
 .container {
     width: 505px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 3px;
-     padding-bottom: 3px;
+    padding-bottom: 3px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1em;
+    font-size: 1.1em;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     flex-flow: column wrap;
     background-color: skyblue;
 }
-.fa{
-     flex-flow: row wrap;
+
+.fa {
+    flex-flow: row wrap;
 }
 
-@media screen  and (max-width: 385px){
-    .container{
-font-size: 2em;
+@media screen and (max-width: 385px) {
+    .container {
+        font-size: 2em;
     }
-    
 }
-@media screen  and (min-width: 386px) and (max-width: 600px){
-    font-size: 1.8em;
+
+@media screen and (min-width: 386px) and (max-width: 600px) {
+    .container {
+        font-size: 1.8em;
+    }
 }
