@@ -37,4 +37,4 @@ Please you are free to email on (ckmutezva@gmail.com)
 
 I was inspired by Udacity to do the project as part of my course work.
 Follow the link to play the game.
-[Frogger Arcade Game](https://https://chamumutezva.github.io/arcade-game-master/)
+[Frogger Arcade Game](https://chamumutezva.github.io/arcade-game-master/)
