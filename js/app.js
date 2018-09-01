@@ -20,6 +20,7 @@ class Enemy {
             this.x = -50;
             this.speed = 100 + Math.floor(Math.random() * 190);
         }
+        //check for collisions and reset player to default position.
         if (player.x < this.x + 80 && player.x + 80 > this.x &&
             player.y < this.y + 60 && player.y + 60 > this.y) {
             subtractScores();
