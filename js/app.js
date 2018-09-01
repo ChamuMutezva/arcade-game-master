@@ -1,18 +1,20 @@
 // Enemies our player must avoid
 class Enemy {
     constructor(x, y, speed) {
+        // Variables applied to each of our instances go here,
+        // The image/sprite for our enemies, this uses
+        // a helper we've provided to easily load images
         this.x = x;
         this.y = y;
         this.speed = speed;
-        // Variables applied to each of our instances go here,
-        // we've provided one for you to get started
-        // The image/sprite for our enemies, this uses
-        // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
     }
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
+          // You should multiply any movement by the dt parameter
+          // which will ensure the game runs at the same speed for
+          // all computers.
         this.x += this.speed * dt;
         if (this.x > 510) {
             this.x = -50;
@@ -24,19 +26,14 @@ class Enemy {
             player.x = 202;
             player.y = 325;
         }
-        // You should multiply any movement by the dt parameter
-        // which will ensure the game runs at the same speed for
-        // all computers.
+      
     }
     // Draw the enemy on the screen, required method for game
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
-
-
-
-// Now write your own player class
+// The player class
 // This class requires an update(), render() and
 // a handleInput() method.
 class Player {
@@ -46,9 +43,12 @@ class Player {
         this.sprite = 'images/char-boy.png';
     }
     update(dt) {}
+    //draw the player on the screen
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+    //handling the keypresses such that the player does not go
+    //off the screen
     handleInput(keyPress) {
         if (keyPress == "left" && this.x > 0) {
             this.x -= 102;
@@ -71,9 +71,10 @@ class Player {
         }
     }
 }
-let level = 1;
+
+let level = 1; // game level
 let scores = 0; //variable to store the scores
-let crosses = 0;
+let crosses = 0; // crosses made bt the player to reach the water
 let divCrosses = document.getElementById("crosses");
 let divScores = document.getElementById("scores");
 let divLevel = document.getElementById("level");
@@ -103,11 +104,23 @@ function subtractScores() {
 function changeLevel() {
     if (scores >= 50 && level === 1) {
         level += 1;
-        enemyLocation.push(150);
-        enemy = new Enemy(0, 150, 200);
-        allEnemies.push(enemy);
+        addMoreEnemies();
+       // enemyLocation.push(150);
+        //enemy = new Enemy(0, Math.random() * 184 + 50, Math.random() * 256);
+        //enemy = new Enemy(0, 150, 200);
+       // allEnemies.push(enemy);
 
+    } else if (scores >= 100 && level === 2){
+        level += 1;
+        addMoreEnemies(); 
     }
+}
+ 
+function addMoreEnemies(){
+    let enemyPosition = Math.random() * 184 + 50;
+    enemyLocation.push(enemyPosition);
+    enemy = new Enemy(0, enemyPosition, Math.random() * 256);
+    allEnemies.push(enemy);
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
