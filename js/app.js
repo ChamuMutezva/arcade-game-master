@@ -35,7 +35,7 @@ class Enemy {
     }
 }
 // The player class
-// This class requires an update(), render() and
+// This class has an update(), render() and
 // a handleInput() method.
 class Player {
     constructor(x, y) {
@@ -83,6 +83,9 @@ let divLevel = document.getElementById("level");
 divScores.innerHTML = `Scores : ${scores}`;
 divCrosses.innerHTML = `Crosses : ${crosses}`;
 divLevel.innerHTML = `Level : ${level}`;
+// update the scores when the player reaches the waer.
+// increment the scores
+//call the function to change the level if criteria is met.
 function updateScoresCrosses() {
     scores += 10;
     crosses += 1;
@@ -91,7 +94,7 @@ function updateScoresCrosses() {
     changeLevel();
     divLevel.innerHTML = `Level : ${level}`;
 }
-
+//reduce the scores if they is a collision and update the scores.
 function subtractScores() {
     if (scores >= 5) {
         scores -= 5;
@@ -102,6 +105,7 @@ function subtractScores() {
     divScores.innerHTML = `Scores : ${scores}`;
 }
 
+//call this function to change the level to make it more challenging
 function changeLevel() {
     if (scores >= 50 && level === 1) {
         level += 1;
@@ -116,7 +120,8 @@ function changeLevel() {
         addMoreEnemies(); 
     }
 }
- 
+ //this function adds more enemies to the game. Keep on scoring
+ //and the enemies increase
 function addMoreEnemies(){
     let enemyPosition = Math.random() * 184 + 50;
     enemyLocation.push(enemyPosition);
